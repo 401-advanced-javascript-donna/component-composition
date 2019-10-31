@@ -1,12 +1,12 @@
 import React from 'react';
-import { characters, gifs } from '../content.json';
-import DeckOfCards from './DeckOfCards';
+// import { characters, gifs } from '../content.json';
+import Characters from './containers/Characters';
+// import DeckOfCards from './DeckOfCards';
 
 export default function App() {
   return (
     <>
-      <DeckOfCards items={characters} title="Characters"/>
-      <DeckOfCards items={gifs} title="Gifs"/>
+      <Characters charCount={20} />
     </>
   );
 }
