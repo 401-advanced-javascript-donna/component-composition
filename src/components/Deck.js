@@ -5,7 +5,7 @@ const Deck = ({ children, title }) => {
   return (
     <section>
       {title && <header>
-        <h2>Characters</h2>
+        <h2>{title}</h2>
       </header>}
       {children}
     </section>
