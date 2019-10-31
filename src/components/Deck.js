@@ -1,18 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Deck = ({ children }) => {
+const Deck = ({ children, title }) => {
   return (
     <section>
-      <header>
+      {title && <header>
         <h2>Characters</h2>
-      </header>
+      </header>}
       {children}
     </section>
   );
 };
 
 Deck.propTypes = {
+  title: PropTypes.string,
   children: PropTypes.node.isRequired
 };
 
