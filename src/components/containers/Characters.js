@@ -12,9 +12,9 @@ class Characters extends Component {
   }
 
   componentDidMount() {
-    const characters = apiCall('https://hey-arnold-api.herokuapp.com/api/v1/characters', this.props.charCount, 1);
-    console.log(characters);
-    this.setState({ characters });
+    apiCall('https://hey-arnold-api.herokuapp.com/api/v1/characters', this.props.charCount, 1)
+      .then(result => this.setState({ characters: result }));
+    ;
   }
 
   render() {
