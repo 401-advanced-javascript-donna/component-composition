@@ -16,6 +16,7 @@ const DeckOfCards = ({ items, title }) => {
 };
 
 DeckOfCards.propTypes = {
+  title: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.shape({
     _id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
