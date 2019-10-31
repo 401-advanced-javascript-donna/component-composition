@@ -8,21 +8,37 @@ class Characters extends Component {
     charCount: PropTypes.number.isRequired
   }
   state= {
-    characters: []
+    characters: [],
+    pageCount: 1
   }
 
   componentDidMount() {
-    apiCall('https://hey-arnold-api.herokuapp.com/api/v1/characters', this.props.charCount, 1)
+    apiCall('https://hey-arnold-api.herokuapp.com/api/v1/characters', this.props.charCount, this.state.pageCount)
       .then(result => this.setState({ characters: result }));
-    ;
+  }
+
+  decrementPage = () => {
+    this.setState({
+      pageCount: this.state.pageCount - 1
+    });
+    apiCall('https://hey-arnold-api.herokuapp.com/api/v1/characters', this.props.charCount, this.state.pageCount)
+      .then(result => this.setState({ characters: result }));
+  }
+
+  incrementPage = () => {
+    this.setState({
+      pageCount: this.state.pageCount + 1
+    });
+    apiCall('https://hey-arnold-api.herokuapp.com/api/v1/characters', this.props.charCount, this.state.pageCount)
+      .then(result => this.setState({ characters: result }));
   }
 
   render() {
     return (
       <>
         <DeckOfCards items={this.state.characters} title='Characters' />
-        <button onClick={this.decrementPage}>🡄</button>
-        <button onClick={this.incrementPage}>🡆</button>
+        <button onClick={this.decrementPage}>←</button>
+        <button onClick={this.incrementPage}>→</button>
       </>
     );
   }
