@@ -18,27 +18,29 @@ class Characters extends Component {
   }
 
   decrementPage = () => {
-    this.setState({
-      pageCount: this.state.pageCount - 1
+    this.setState(state => ({
+      pageCount: state.pageCount - 1
+    }), () => {
+      apiCall('https://hey-arnold-api.herokuapp.com/api/v1/characters', this.props.charCount, this.state.pageCount)
+        .then(result => this.setState({ characters: result }));
     });
-    apiCall('https://hey-arnold-api.herokuapp.com/api/v1/characters', this.props.charCount, this.state.pageCount)
-      .then(result => this.setState({ characters: result }));
   }
 
   incrementPage = () => {
-    this.setState({
-      pageCount: this.state.pageCount + 1
+    this.setState(state => ({
+      pageCount: state.pageCount + 1
+    }), () => {
+      apiCall('https://hey-arnold-api.herokuapp.com/api/v1/characters', this.props.charCount, this.state.pageCount)
+        .then(result => this.setState({ characters: result }));
     });
-    apiCall('https://hey-arnold-api.herokuapp.com/api/v1/characters', this.props.charCount, this.state.pageCount)
-      .then(result => this.setState({ characters: result }));
   }
 
   render() {
     return (
       <>
         <DeckOfCards items={this.state.characters} title='Characters' />
-        <button onClick={this.decrementPage}>←</button>
-        <button onClick={this.incrementPage}>→</button>
+        <button disabled={this.state.pageCount === 1 ? true : false} onClick={this.decrementPage}>←</button>
+        <button disabled={this.state.pageCount === 500 ? true : false} onClick={this.incrementPage}>→</button>
       </>
     );
   }
