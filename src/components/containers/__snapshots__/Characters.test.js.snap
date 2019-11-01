@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Characters container renders Characters 1`] = `
+<Fragment>
+  <DeckOfCards
+    items={Array []}
+    title="Characters"
+  />
+  <button
+    disabled={true}
+    onClick={[Function]}
+  >
+    ←
+  </button>
+  <button
+    disabled={false}
+    onClick={[Function]}
+  >
+    →
+  </button>
+</Fragment>
+`;
