@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card component renders Card 1`] = `
+<Fragment>
+  <figure>
+    <img />
+  </figure>
+  <p>
+     has 
+  </p>
+</Fragment>
+`;

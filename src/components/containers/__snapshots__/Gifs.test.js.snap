@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Gifs container renders Gifs 1`] = `
+<Fragment>
+  <Deck
+    title="gifs"
+  />
+  <button
+    onClick={[Function]}
+  >
+    Get New Gifs
+  </button>
+</Fragment>
+`;
